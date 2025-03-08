@@ -3,24 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magazine Archive</title>
+    <title>CURAM Magazine</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
-        <h1>CURAM Magazine Archive</h1>
+        <h1>CURAM Magazine</h1>
+        <p>Advancing Health Literacy for the USC and South Los Angeles Communities</p>
     </header>
 
-    <main>
-        <section class="magazine-list">
-            <h2>Past Issues</h2>
-            <a href="pdfs/reproductive_health.pdf" download>Download Issue #1 - Reproductive Health</a>
-            <a href="pdfs/environmental_health.pdf" download>Download Issue #2 - Environmental Health and Sustainability</a>
-        </section>
-    </main>
+    <!-- 🔹 INSERT NAVBAR HERE -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="magazine.html">Magazine</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
 
-    <footer>
-        <p>&copy; 2025 CURAM Magazine | All Rights Reserved</p>
-    </footer>
+    <div class="container">
+        <section>
+            <h2>About This Edition</h2>
+            <p>Discover our latest issue focusing on environmental health and sustainability.</p>
+        </section>
+
+        <section id="featured-edition">
+            <h2>Featured Edition</h2>
+            <!-- Magazine rotation will insert content here -->
+        </section>
+
+        <section class="pdf-list">
+            <h2>Download Our Issues</h2>
+            <p>Explore our past issues below:</p>
+            <a href="pdfs/reproductive_health.pdf" download>📖 Reproductive Health Issue</a>
+            <a href="pdfs/environmental_health.pdf" download>🌱 Environmental Health Issue</a>
+        </section>
+    </div>
 </body>
 </html>
