@@ -1,11 +1,13 @@
 // Load navbar dynamically
 document.addEventListener("DOMContentLoaded", function () {
+    // Ensure that the navbar is properly loaded
     fetch("navbar.html")
         .then(response => response.text())
         .then(data => {
+            // Insert the navbar into the page after the body
             document.body.insertAdjacentHTML("afterbegin", data);
 
-            // Highlight active tab AFTER navbar loads
+            // Ensure the active page is highlighted after the navbar is loaded
             const currentPage = window.location.pathname.split("/").pop(); // Get the current page filename
             const navLinks = document.querySelectorAll("nav ul li a");
 
