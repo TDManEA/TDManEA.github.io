@@ -3,25 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Resources</title>
+    <title>Health Resources | CURAM Magazine</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script> <!-- Ensure the script is loaded -->
 </head>
 <body>
+    <!-- Nav Bar here -->
+    <div id="navbar-container"></div>
+
     <header>
-        <h1>Health Resources</h1>
+        <h1>CURAM Magazine - Health Resources</h1>
+        <p>Providing valuable resources on reproductive and environmental health.</p>
     </header>
 
-    <main>
-        <section class="resource-list">
-            <h2>Useful Links</h2>
-            <ul>
-                <li><a href="https://www.cdc.gov">CDC</a></li>
-                <li><a href="https://www.who.int">WHO</a></li>
-                <!-- More resources can be added here -->
-            </ul>
-        </section>
-    </main>
+    <div class="container">
+        <section>
+            <h2>Available Resources</h2>
+            <p>Explore the following health resources:</p>
 
+            <!-- Reproductive Health Resources PDF -->
+            <section>
+                <h3>Reproductive Health Resources</h3>
+                <div class="pdf-preview">
+                    <!-- Embed PDF for preview -->
+                    <iframe src="pdfs/reproductive_health_resources.pdf" width="600" height="400" style="border: none;">
+                        <p>Your browser does not support iframes.</p>
+                    </iframe>
+                    <br>
+                    <a href="pdfs/reproductive_health_resources.pdf" download>Download Reproductive Health Resources</a>
+                </div>
+            </section>
+
+            <!-- Environmental Health Resources PDF -->
+            <section>
+                <h3>Environmental Health Resources</h3>
+                <div class="pdf-preview">
+                    <!-- Embed PDF for preview -->
+                    <iframe src="pdfs/environmental_health_resources.pdf" width="600" height="400" style="border: none;">
+                        <p>Your browser does not support iframes.</p>
+                    </iframe>
+                    <br>
+                    <a href="pdfs/environmental_health_resources.pdf" download>Download Environmental Health Resources</a>
+                </div>
+            </section>
+        </section>
+    </div>
+    
     <footer>
         <p>&copy; 2025 CURAM Magazine | All Rights Reserved</p>
     </footer>
