@@ -42,7 +42,7 @@ header h1 {
     border: 5px solid #000; /* Optional: border around the spinning area */
 }
 
-/* Hide the iframe content but keep the Spotify controls visible */
+/* Commented out the Spotify player-related styles for now */
 #spotify-player {
     position: absolute;
     top: 0;
@@ -51,16 +51,15 @@ header h1 {
     height: 100%;
     transform: scale(1.5); /* Make it bigger to fit inside the circle */
     object-fit: cover; /* Ensure it covers the area */
-    visibility: hidden; /* Hides the actual content */
-    z-index: 1; /* Keeps the player content below the controls */
+    display: none; /* Now completely removes the Spotify iframe */
 }
 
-/* Keep only the buttons and controls visible (styled here for clarity) */
 iframe[src*="spotify"] {
     visibility: visible !important; /* Force visibility for buttons and controls */
     z-index: 2;
 }
 
+/* Turntable rotation */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -70,36 +69,10 @@ iframe[src*="spotify"] {
     }
 }
 
-/* Container Styles */
-.container {
-    width: 80%;
-    margin: 2rem auto;
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 /* Footer Styles */
 footer {
     text-align: center;
     padding: 1rem 0;
     background-color: #0073e6;
     color: white;
-}
-
-/* Optional: Customize button styles for forms and other sections */
-button {
-    background-color: #0073e6;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #005bb5;
 }
