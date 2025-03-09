@@ -63,4 +63,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
         });
     }
+
+    // Commented out the Spotify player related code for now
+    /*
+    // Magazine Rotation: Change featured edition on page load
+    const featuredEdition = document.getElementById('featured-edition');
+    if (featuredEdition) {
+        const editions = [
+            { title: "Reproductive Health", color: "#ff5733", pdf: "pdfs/reproductive_health.pdf" },
+            { title: "Environmental Health and Sustainability", color: "#28a745", pdf: "pdfs/environmental_health.pdf" }
+        ];
+        const randomEdition = editions[Math.floor(Math.random() * editions.length)];
+        document.body.style.backgroundColor = randomEdition.color;
+        featuredEdition.innerHTML = `
+            <h3>Featured Edition: ${randomEdition.title}</h3>
+            <a href="${randomEdition.pdf}" download>Download Now</a>
+        `;
+    }
+    */
 });
