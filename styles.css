@@ -58,7 +58,62 @@ nav ul li a.active {
     color: white;
 }
 
-/* Additional Styles for other sections */
+/* Featured Section */
+.featured {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.featured h2 {
+    font-size: 2rem;
+}
+
+/* About Section */
+.about {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Spotify Section with spinning effect */
+.spotify-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.spotify-section h2 {
+    font-size: 2rem;
+    color: #0073e6;
+}
+
+#turntable-container {
+    position: relative;
+    width: 300px;
+    height: 380px;
+    margin-top: 20px;
+    animation: spin 15s linear infinite; /* Adjust the speed of spinning */
+    display: inline-block;
+}
+
+iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Makes it round like a vinyl record */
+    border: 5px solid #000;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Container Styles */
 .container {
     width: 80%;
     margin: 2rem auto;
@@ -68,4 +123,26 @@ nav ul li a.active {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Add more styles below for other components like magazine, resources, etc. */
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #0073e6;
+    color: white;
+}
+
+/* Optional: Customize button styles for forms and other sections */
+button {
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
