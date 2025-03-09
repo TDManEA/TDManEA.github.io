@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.text())
         .then(data => {
             // Insert the navbar into the page after the body
-            document.body.insertAdjacentHTML("afterbegin", data);
+           document.getElementById("navbar-container").innerHTML = data;
 
             // Ensure the active page is highlighted after the navbar is loaded
             const currentPage = window.location.pathname.split("/").pop(); // Get the current page filename
