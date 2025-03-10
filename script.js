@@ -1,71 +1,35 @@
-// Load navbar dynamically
+// Initialize Firebase (ensure this is declared before using Firebase)
+const firebaseConfig = {
+    apiKey: "AIzaSyC0WfmZ6gpkzVt98cj7QgVX4NzvwbEQ7Bs",
+    authDomain: "curam-magazine.firebaseapp.com",
+    projectId: "curam-magazine",
+    storageBucket: "curam-magazine.firebasestorage.app",
+    messagingSenderId: "211994963594",
+    appId: "1:211994963594:web:e9efee5c31f7c7acb90773",
+    measurementId: "G-B971550HPM"
+};
+
+firebase.initializeApp(firebaseConfig);
+
 document.addEventListener("DOMContentLoaded", function () {
-    // Ensure that the navbar is properly loaded
+    // Load navbar dynamically
     fetch("navbar.html")
         .then(response => response.text())
         .then(data => {
-            // Insert the navbar into the page after the body
-           document.getElementById("navbar-container").innerHTML = data;
+            document.getElementById("navbar-container").innerHTML = data;
 
-            // Ensure the active page is highlighted after the navbar is loaded
-            const currentPage = window.location.pathname.split("/").pop(); // Get the current page filename
+            // Highlight active page
+            const currentPage = window.location.pathname.split("/").pop();
             const navLinks = document.querySelectorAll("nav ul li a");
 
             navLinks.forEach(link => {
                 if (link.getAttribute("href") === currentPage) {
-                    link.classList.add("active"); // Add 'active' class to the current page link
+                    link.classList.add("active");
                 }
             });
         })
         .catch(error => console.error("Error loading navbar:", error));
 
-    // Magazine Rotation: Change featured edition on page load
-    const featuredEdition = document.getElementById('featured-edition');
-
-    if (featuredEdition) { // Ensure the element exists before modifying it
-        const editions = [
-            { title: "Reproductive Health", color: "#ff5733", pdf: "pdfs/reproductive_health.pdf" },
-            { title: "Environmental Health and Sustainability", color: "#28a745", pdf: "pdfs/environmental_health.pdf" }
-        ];
-
-        const randomEdition = editions[Math.floor(Math.random() * editions.length)];
-        document.body.style.backgroundColor = randomEdition.color;
-
-        featuredEdition.innerHTML = `
-            <h3>Featured Edition: ${randomEdition.title}</h3>
-            <a href="${randomEdition.pdf}" download>Download Now</a>
-        `;
-    }
-
-    // Firebase Login System (simplified for use with Firebase Auth)
-    firebase.initializeApp({
-        apiKey: "your-api-key",
-        authDomain: "your-auth-domain",
-        projectId: "your-project-id"
-    });
-
-    const auth = firebase.auth();
-    const loginForm = document.getElementById('login-form');
-
-    if (loginForm) { // Ensure login form exists before adding event listener
-        loginForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            auth.signInWithEmailAndPassword(email, password)
-                .then(userCredential => {
-                    console.log("Logged in as", userCredential.user.email);
-                })
-                .catch(error => {
-                    console.error("Error signing in: ", error);
-                });
-        });
-    }
-
-    // Commented out the Spotify player related code for now
-    /*
     // Magazine Rotation: Change featured edition on page load
     const featuredEdition = document.getElementById('featured-edition');
     if (featuredEdition) {
@@ -80,5 +44,27 @@ document.addEventListener("DOMContentLoaded", function () {
             <a href="${randomEdition.pdf}" download>Download Now</a>
         `;
     }
-    */
+
+    // Firebase Authentication
+    const auth = firebase.auth();
+    const loginForm = document.getElementById('login-form');
+
+    if (loginForm) {
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            auth.signInWithEmailAndPassword(email, password)
+                .then(userCredential => {
+                    console.log("Logged in as", userCredential.user.email);
+                    alert("Login successful!");
+                })
+                .catch(error => {
+                    console.error("Error signing in: ", error);
+                    alert("Login failed: " + error.message);
+                });
+        });
+    }
 });
