@@ -1,68 +1,58 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Load the Navbar dynamically
-    fetch("navbar.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("navbar-container").innerHTML = data;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURAM Magazine</title>
+    <link rel="stylesheet" href="styles.css">
 
-            const currentPage = window.location.pathname.split("/").pop();
-            const navLinks = document.querySelectorAll("nav ul li a");
+    <!-- Firebase SDK (must be before script.js) -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
 
-            navLinks.forEach(link => {
-                if (link.getAttribute("href") === currentPage) {
-                    link.classList.add("active");
-                }
-            });
-        })
-        .catch(error => console.error("Error loading navbar:", error));
+    <!-- Load script.js after Firebase SDK -->
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar is dynamically loaded from navbar.html -->
+    <div id="navbar-container"></div>
 
-    // Featured Edition
-    const featuredEdition = document.getElementById('featured-edition');
-    if (featuredEdition) {
-        const editions = [
-            { title: "Reproductive Health", color: "#ff5733", pdf: "pdfs/reproductive_health.pdf" },
-            { title: "Environmental Health and Sustainability", color: "#28a745", pdf: "pdfs/environmental_health.pdf" }
-        ];
+    <header>
+        <h1>CURAM Magazine</h1>
+        <p>Advancing Health Literacy for USC and South Los Angeles Communities</p>
+    </header>
 
-        const randomEdition = editions[Math.floor(Math.random() * editions.length)];
-        document.body.style.backgroundColor = randomEdition.color;
+    <main>
+        <!-- Featured Section -->
+        <section class="featured">
+            <h2>Featured Magazine Edition</h2>
+            <div id="featured-edition">
+                <!-- Dynamic magazine content will load here -->
+            </div>
+        </section>
 
-        featuredEdition.innerHTML = `
-            <h3>Featured Edition: ${randomEdition.title}</h3>
-            <a href="${randomEdition.pdf}" download>Download Now</a>
-        `;
-    }
+        <!-- About Us Section -->
+        <section class="about">
+            <h2>About Us</h2>
+            <p>We are a non-profit organization dedicated to advancing health literacy and sustainability through our bilingual magazine.</p>
+        </section>
 
-    // Initialize Firebase using the CDN
-    const firebaseConfig = {
-        apiKey: "AIzaSyC0WfmZ6gpkzVt98cj7QgVX4NzvwbEQ7Bs",
-        authDomain: "curam-magazine.firebaseapp.com",
-        projectId: "curam-magazine",
-        storageBucket: "curam-magazine.firebasestorage.app",
-        messagingSenderId: "211994963594",
-        appId: "1:211994963594:web:e9efee5c31f7c7acb90773",
-        measurementId: "G-B971550HPM"
-    };
+        <!-- Spotify Playlist Section (with spinning effect) -->
+        <!--
+        <section class="spotify-section">
+            <h2>Curated Playlist</h2>
+            <p>Enjoy our featured playlist while browsing!</p>
+            <div id="turntable-container">
+                <img src="turntable-image.png" alt="Turntable" class="turntable-image">
+                <iframe src="https://open.spotify.com/embed/playlist/5sBFFQsnPRolDYkrtjdyGx?utm_source=generator"
+                        width="0" height="0" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+        </section>
+        -->
+    </main>
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const loginForm = document.getElementById('login-form');
-
-    if (loginForm) {
-        loginForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            auth.signInWithEmailAndPassword(email, password)
-                .then(userCredential => {
-                    console.log("Logged in as", userCredential.user.email);
-                })
-                .catch(error => {
-                    console.error("Error signing in: ", error);
-                });
-        });
-    }
-});
+    <footer>
+        <p>&copy; 2025 CURAM Magazine | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
